@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro da Vaga - Protótipo IRHO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/prototipo.css">
+</head>
+
+<body>
+    <div class="vg-layout">
+
+        <aside class="vg-sidebar">
+            <div class="vg-sidebar-brand">
+                <img src="assets/IRHO-BRANCO.png" class="vg-sidebar-logo" alt="IRHO">
+                <span class="vg-sidebar-title">Abertura de Vaga</span>
+            </div>
+
+            <nav class="vg-stepper" aria-label="Etapas do processo">
+                <a href="01-cadastro-vaga.html" class="vg-step is-active">
+                    <span class="vg-step-number">1</span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro da vaga</strong>
+                        <span>Dados, requisitos e aprovações</span>
+                    </span>
+                </a>
+                <a href="02-cadastro-inhire.html" class="vg-step">
+                    <span class="vg-step-number">2</span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro no Inhire</strong>
+                        <span>Publicação e funil seletivo</span>
+                    </span>
+                </a>
+                <a href="03-progresso-vaga.html" class="vg-step">
+                    <span class="vg-step-number">3</span>
+                    <span class="vg-step-label">
+                        <strong>Progresso da vaga</strong>
+                        <span>Acompanhamento dos candidatos</span>
+                    </span>
+                </a>
+            </nav>
+
+            <nav class="vg-sidebar-menu" aria-label="Seções do formulário">
+                <div class="vg-sidebar-menu-title">Nesta tela</div>
+                <a href="#painelDadosVaga" class="active">Dados da vaga</a>
+                <a href="#painelDescricao">Descrição e requisitos</a>
+                <a href="#painelCondicoes">Condições e remuneração</a>
+                <a href="#painelAprovacoes">Aprovações</a>
+            </nav>
+
+            <div class="vg-sidebar-footer">
+                <div class="vg-footer-credits">
+                    <span class="vg-credits-text">Desenvolvido por</span>
+                    <img src="assets/LOGO-OPERACIONAL-BRANCA.png" alt="Interhativa Operacional" class="vg-credits-img">
+                </div>
+            </div>
+        </aside>
+
+        <main class="vg-main">
+
+            <div class="vg-topbar">
+                <div class="vg-topbar-heading">
+                    <h1>Cadastro da vaga</h1>
+                    <p>Protótipo estático — os dados preenchidos aqui alimentam as telas 2 e 3 apenas para fins de
+                        demonstração.</p>
+                </div>
+                <div class="vg-topbar-actions">
+                    <span class="badge badge-neutral"><i class="fa-regular fa-clock"></i> Rascunho</span>
+                </div>
+            </div>
+
+            <form id="formCadastroVaga" autocomplete="off">
+
+                <!-- =========================================
+                     DADOS DA VAGA
+                ========================================== -->
+                <section class="vg-panel" id="painelDadosVaga">
+                    <div class="vg-panel-heading">
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-briefcase"></i> Dados da vaga</h2>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="row">
+                            <div class="col-8 form-group">
+                                <label for="tituloVaga" class="label-obrigatorio">Título da vaga</label>
+                                <input type="text" id="tituloVaga" name="tituloVaga" class="form-control"
+                                    placeholder="Ex.: Analista de Recrutamento e Seleção" maxlength="150">
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label for="quantidadeVagas" class="label-obrigatorio">Quantidade de vagas</label>
+                                <input type="number" id="quantidadeVagas" name="quantidadeVagas" class="form-control"
+                                    min="1" value="1">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 form-group">
+                                <label for="departamento" class="label-obrigatorio">Departamento solicitante</label>
+                                <select id="departamento" name="departamento" class="form-control">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="GENTE">Gente &amp; Cultura (RH)</option>
+                                    <option value="COMERCIAL">Comercial</option>
+                                    <option value="TI">TI</option>
+                                    <option value="FINANCEIRO">Financeiro</option>
+                                    <option value="MARKETING">Marketing</option>
+                                    <option value="OPERACIONAL">Operacional</option>
+                                    <option value="JURIDICO">Jurídico</option>
+                                    <option value="ADMINISTRATIVO">Administrativo</option>
+                                </select>
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label for="gestorSolicitante" class="label-obrigatorio">Gestor solicitante</label>
+                                <input type="text" id="gestorSolicitante" name="gestorSolicitante"
+                                    class="form-control" placeholder="Nome do gestor" maxlength="150">
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label for="centroCusto">Centro de custo</label>
+                                <input type="text" id="centroCusto" name="centroCusto" class="form-control"
+                                    placeholder="Ex.: CC-1042" maxlength="50">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 form-group">
+                                <label for="prioridade" class="label-obrigatorio">Prioridade</label>
+                                <select id="prioridade" name="prioridade" class="form-control">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="BAIXA">Baixa</option>
+                                    <option value="MEDIA">Média</option>
+                                    <option value="ALTA">Alta</option>
+                                    <option value="URGENTE">Urgente</option>
+                                </select>
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label for="dataAdmissao">Data desejada de admissão</label>
+                                <input type="date" id="dataAdmissao" name="dataAdmissao" class="form-control">
+                            </div>
+
+                            <div class="col-4 form-group">
+                                <label>Tipo de vaga</label>
+                                <select id="tipoVaga" name="tipoVaga" class="form-control">
+                                    <option value="NOVA_POSICAO">Nova posição</option>
+                                    <option value="SUBSTITUICAO">Substituição</option>
+                                    <option value="AUMENTO_QUADRO">Aumento de quadro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div data-mostrar-se="tipoVaga=SUBSTITUICAO" class="form-group">
+                            <label for="colaboradorSubstituido">Colaborador substituído</label>
+                            <input type="text" id="colaboradorSubstituido" name="colaboradorSubstituido"
+                                class="form-control" placeholder="Nome de quem está saindo da posição">
+                        </div>
+
+                        <div class="form-group is-last">
+                            <label for="motivoAbertura" class="label-obrigatorio">Motivo da abertura</label>
+                            <textarea id="motivoAbertura" name="motivoAbertura" class="form-control" rows="3"
+                                placeholder="Descreva o motivo da abertura desta vaga."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     DESCRIÇÃO E REQUISITOS
+                ========================================== -->
+                <section class="vg-panel" id="painelDescricao">
+                    <div class="vg-panel-heading">
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-file-lines"></i> Descrição e requisitos</h2>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="form-group">
+                            <label for="descricaoVaga" class="label-obrigatorio">Descrição da vaga</label>
+                            <textarea id="descricaoVaga" name="descricaoVaga" class="form-control" rows="4"
+                                placeholder="Resumo geral da posição, do time e do desafio."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="responsabilidades">Principais responsabilidades</label>
+                            <textarea id="responsabilidades" name="responsabilidades" class="form-control" rows="4"
+                                placeholder="Liste as principais atividades e entregas esperadas."></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="requisitosObrigatorios" class="label-obrigatorio">Requisitos
+                                    obrigatórios</label>
+                                <textarea id="requisitosObrigatorios" name="requisitosObrigatorios"
+                                    class="form-control" rows="4"
+                                    placeholder="Conhecimentos e experiências indispensáveis."></textarea>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="requisitosDesejaveis">Requisitos desejáveis</label>
+                                <textarea id="requisitosDesejaveis" name="requisitosDesejaveis" class="form-control"
+                                    rows="4" placeholder="Diferenciais que somam, mas não são eliminatórios."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group is-last">
+                                <label for="escolaridade">Escolaridade mínima</label>
+                                <select id="escolaridade" name="escolaridade" class="form-control">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="FUNDAMENTAL">Ensino fundamental</option>
+                                    <option value="MEDIO">Ensino médio</option>
+                                    <option value="TECNICO">Ensino técnico</option>
+                                    <option value="SUPERIOR_CURSANDO">Superior cursando</option>
+                                    <option value="SUPERIOR_COMPLETO">Superior completo</option>
+                                    <option value="POS_GRADUACAO">Pós-graduação</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6 form-group is-last">
+                                <label for="experiencia">Experiência mínima</label>
+                                <select id="experiencia" name="experiencia" class="form-control">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="SEM_EXPERIENCIA">Sem experiência</option>
+                                    <option value="1_2_ANOS">1 a 2 anos</option>
+                                    <option value="3_5_ANOS">3 a 5 anos</option>
+                                    <option value="5_MAIS_ANOS">Mais de 5 anos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     CONDIÇÕES E REMUNERAÇÃO
+                ========================================== -->
+                <section class="vg-panel" id="painelCondicoes">
+                    <div class="vg-panel-heading">
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-sack-dollar"></i> Condições e remuneração
+                        </h2>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="tipoContratacao" class="label-obrigatorio">Tipo de contratação</label>
+                                <select id="tipoContratacao" name="tipoContratacao" class="form-control">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="CLT">CLT</option>
+                                    <option value="PJ">PJ</option>
+                                    <option value="ESTAGIO">Estágio</option>
+                                    <option value="APRENDIZ">Aprendiz</option>
+                                    <option value="TEMPORARIO">Temporário</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="localTrabalho">Local de trabalho</label>
+                                <input type="text" id="localTrabalho" name="localTrabalho" class="form-control"
+                                    placeholder="Cidade / UF ou unidade">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modelo de trabalho</label>
+                            <div class="option-grid">
+                                <label class="option-card" for="modeloPresencial">
+                                    <input type="radio" name="modeloTrabalho" id="modeloPresencial" value="PRESENCIAL"
+                                        checked>
+                                    <span class="option-marker"></span>
+                                    <span class="option-content">
+                                        <strong>Presencial</strong>
+                                        <span>Trabalho realizado integralmente na unidade.</span>
+                                    </span>
+                                </label>
+
+                                <label class="option-card" for="modeloHibrido">
+                                    <input type="radio" name="modeloTrabalho" id="modeloHibrido" value="HIBRIDO">
+                                    <span class="option-marker"></span>
+                                    <span class="option-content">
+                                        <strong>Híbrido</strong>
+                                        <span>Alterna dias presenciais e remotos.</span>
+                                    </span>
+                                </label>
+
+                                <label class="option-card" for="modeloRemoto">
+                                    <input type="radio" name="modeloTrabalho" id="modeloRemoto" value="REMOTO">
+                                    <span class="option-marker"></span>
+                                    <span class="option-content">
+                                        <strong>Remoto</strong>
+                                        <span>Trabalho realizado fora da unidade.</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="salarioMin">Faixa salarial - de</label>
+                                <div class="form-input-prefixed">
+                                    <span>R$</span>
+                                    <input type="text" id="salarioMin" name="salarioMin" class="form-control"
+                                        inputmode="numeric" placeholder="0,00">
+                                </div>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="salarioMax">Faixa salarial - até</label>
+                                <div class="form-input-prefixed">
+                                    <span>R$</span>
+                                    <input type="text" id="salarioMax" name="salarioMax" class="form-control"
+                                        inputmode="numeric" placeholder="0,00">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group is-last">
+                            <label>Benefícios</label>
+                            <div class="check-list">
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="VT" checked>
+                                    <span class="check-item-text"><strong>Vale-transporte</strong></span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="VR_VA" checked>
+                                    <span class="check-item-text"><strong>Vale-refeição / Vale-alimentação</strong></span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="PLANO_SAUDE">
+                                    <span class="check-item-text"><strong>Plano de saúde</strong></span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="PLANO_ODONTO">
+                                    <span class="check-item-text"><strong>Plano odontológico</strong></span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="GYMPASS">
+                                    <span class="check-item-text"><strong>Gympass / wellness</strong></span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="beneficios" value="PLR">
+                                    <span class="check-item-text"><strong>PLR</strong></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     APROVAÇÕES
+                ========================================== -->
+                <section class="vg-panel" id="painelAprovacoes">
+                    <div class="vg-panel-heading">
+                        <div>
+                            <h2 class="vg-panel-title"><i class="fa-solid fa-stamp"></i> Aprovações</h2>
+                            <p class="vg-panel-subtitle">Fluxo baseado nas áreas envolvidas no processo de onboarding.
+                            </p>
+                        </div>
+                        <span class="badge badge-yellow" id="badgeAprovacoes"><i class="fa-regular fa-hourglass-half"></i>
+                            Pendente</span>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="approval-grid">
+                            <div class="approval-card">
+                                <span class="approval-icon badge-green" style="color:#0f5f2f;background:var(--vg-green-soft)">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </span>
+                                <strong>Gente &amp; Cultura</strong>
+                                <span class="badge badge-green">Aprovado</span>
+                            </div>
+
+                            <div class="approval-card">
+                                <span class="approval-icon" style="color:#8a5c00;background:var(--vg-yellow-soft)">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </span>
+                                <strong>Compliance</strong>
+                                <span class="badge badge-yellow">Pendente</span>
+                            </div>
+
+                            <div class="approval-card">
+                                <span class="approval-icon" style="color:#8a5c00;background:var(--vg-yellow-soft)">
+                                    <i class="fa-solid fa-gavel"></i>
+                                </span>
+                                <strong>Jurídico</strong>
+                                <span class="badge badge-yellow">Pendente</span>
+                            </div>
+
+                            <div class="approval-card">
+                                <span class="approval-icon" style="color:#58656b;background:#edf0f2">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                                <strong>Administrativo / Financeiro</strong>
+                                <span class="badge badge-neutral">Não iniciado</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 22px;">
+                            <label for="observacaoAprovacao">Observações para os aprovadores</label>
+                            <textarea id="observacaoAprovacao" name="observacaoAprovacao" class="form-control"
+                                rows="3" placeholder="Informações adicionais relevantes para a aprovação."></textarea>
+                        </div>
+
+                        <div id="mensagemAprovacoes" class="vg-feedback" role="status"></div>
+                    </div>
+                </section>
+
+                <div class="vg-form-footer">
+                    <button type="button" class="btn btn-default" id="btnSalvarRascunho">
+                        <i class="fa-regular fa-floppy-disk"></i> Salvar rascunho
+                    </button>
+
+                    <button type="button" class="btn btn-primary" id="btnAvancar">
+                        Enviar para aprovação e avançar
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/prototipo.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            var form = document.getElementById("formCadastroVaga");
+
+            function coletarDados() {
+                var dados = {};
+                new FormData(form).forEach(function (valor, chave) {
+                    if (dados[chave] === undefined) {
+                        dados[chave] = valor;
+                    } else if (Array.isArray(dados[chave])) {
+                        dados[chave].push(valor);
+                    } else {
+                        dados[chave] = [dados[chave], valor];
+                    }
+                });
+                return dados;
+            }
+
+            function restaurarDados() {
+                var salvos = window.VagaPrototipo.lerDados();
+                Object.keys(salvos).forEach(function (chave) {
+                    var campos = form.querySelectorAll("[name='" + chave + "']");
+                    if (!campos.length) return;
+
+                    var valor = salvos[chave];
+                    campos.forEach(function (campo) {
+                        if (campo.type === "checkbox" || campo.type === "radio") {
+                            var valores = Array.isArray(valor) ? valor : [valor];
+                            campo.checked = valores.indexOf(campo.value) !== -1;
+                        } else {
+                            campo.value = valor;
+                        }
+                    });
+                });
+
+                form.dispatchEvent(new Event("input"));
+                document.querySelectorAll(".option-card input[type='radio']:checked").forEach(function (input) {
+                    input.dispatchEvent(new Event("change"));
+                });
+                document.querySelectorAll(".check-item input[type='checkbox']").forEach(function (input) {
+                    input.dispatchEvent(new Event("change"));
+                });
+            }
+
+            document.getElementById("btnSalvarRascunho").addEventListener("click", function () {
+                window.VagaPrototipo.atualizarDados(coletarDados());
+                var msg = document.getElementById("mensagemAprovacoes");
+                msg.textContent = "Rascunho salvo neste navegador (demonstração).";
+                msg.className = "vg-feedback is-visible is-success";
+            });
+
+            document.getElementById("btnAvancar").addEventListener("click", function () {
+                var dados = coletarDados();
+                dados.statusVaga = "AGUARDANDO_APROVACAO";
+                window.VagaPrototipo.atualizarDados(dados);
+                window.location.href = "02-cadastro-inhire.html";
+            });
+
+            restaurarDados();
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro no Inhire - Protótipo IRHO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/prototipo.css">
+</head>
+
+<body>
+    <div class="vg-layout">
+
+        <aside class="vg-sidebar">
+            <div class="vg-sidebar-brand">
+                <img src="assets/IRHO-BRANCO.png" class="vg-sidebar-logo" alt="IRHO">
+                <span class="vg-sidebar-title">Abertura de Vaga</span>
+            </div>
+
+            <nav class="vg-stepper" aria-label="Etapas do processo">
+                <a href="01-cadastro-vaga.html" class="vg-step is-done">
+                    <span class="vg-step-number"></span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro da vaga</strong>
+                        <span>Dados, requisitos e aprovações</span>
+                    </span>
+                </a>
+                <a href="02-cadastro-inhire.html" class="vg-step is-active">
+                    <span class="vg-step-number">2</span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro no Inhire</strong>
+                        <span>Publicação e funil seletivo</span>
+                    </span>
+                </a>
+                <a href="03-progresso-vaga.html" class="vg-step">
+                    <span class="vg-step-number">3</span>
+                    <span class="vg-step-label">
+                        <strong>Progresso da vaga</strong>
+                        <span>Acompanhamento dos candidatos</span>
+                    </span>
+                </a>
+            </nav>
+
+            <nav class="vg-sidebar-menu" aria-label="Seções do formulário">
+                <div class="vg-sidebar-menu-title">Nesta tela</div>
+                <a href="#painelResumoVaga" class="active">Resumo da vaga</a>
+                <a href="#painelPublicacao">Publicação no Inhire</a>
+                <a href="#painelFunil">Etapas do processo seletivo</a>
+                <a href="#painelEquipe">Equipe responsável</a>
+            </nav>
+
+            <div class="vg-sidebar-footer">
+                <div class="vg-footer-credits">
+                    <span class="vg-credits-text">Desenvolvido por</span>
+                    <img src="assets/LOGO-OPERACIONAL-BRANCA.png" alt="Interhativa Operacional" class="vg-credits-img">
+                </div>
+            </div>
+        </aside>
+
+        <main class="vg-main">
+
+            <div class="vg-topbar">
+                <div class="vg-topbar-heading">
+                    <h1>Cadastrar vaga no Inhire</h1>
+                    <p>Publique a vaga aprovada no ATS Inhire e configure o funil de recrutamento.</p>
+                </div>
+                <div class="vg-topbar-actions">
+                    <span class="badge badge-green"><i class="fa-solid fa-check"></i> Vaga aprovada</span>
+                </div>
+            </div>
+
+            <form id="formCadastroInhire" autocomplete="off">
+
+                <!-- =========================================
+                     RESUMO DA VAGA (somente leitura)
+                ========================================== -->
+                <section class="vg-panel" id="painelResumoVaga">
+                    <div class="vg-panel-heading">
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-briefcase"></i> Resumo da vaga</h2>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="summary-grid" id="resumoVagaGrid">
+                            <div class="summary-row">
+                                <span class="summary-label">Título da vaga</span>
+                                <span class="summary-value" data-resumo="tituloVaga">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Departamento</span>
+                                <span class="summary-value" data-resumo="departamento">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Gestor solicitante</span>
+                                <span class="summary-value" data-resumo="gestorSolicitante">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Quantidade de vagas</span>
+                                <span class="summary-value" data-resumo="quantidadeVagas">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Tipo de contratação</span>
+                                <span class="summary-value" data-resumo="tipoContratacao">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Modelo de trabalho</span>
+                                <span class="summary-value" data-resumo="modeloTrabalho">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Local de trabalho</span>
+                                <span class="summary-value" data-resumo="localTrabalho">—</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Faixa salarial</span>
+                                <span class="summary-value" data-resumo="faixaSalarial">—</span>
+                            </div>
+                        </div>
+
+                        <p class="form-hint" style="margin-top: 16px;">
+                            <i class="fa-regular fa-circle-question"></i>
+                            Dados vindos da Tela 1 (Cadastro da vaga). Caso esteja em branco, preencha a tela
+                            anterior primeiro.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     PUBLICAÇÃO NO INHIRE
+                ========================================== -->
+                <section class="vg-panel" id="painelPublicacao">
+                    <div class="vg-panel-heading">
+                        <div>
+                            <h2 class="vg-panel-title"><i class="fa-solid fa-plug-circle-bolt"></i> Publicação no
+                                Inhire</h2>
+                            <p class="vg-panel-subtitle">Configure como a vaga será exibida publicamente.</p>
+                        </div>
+                        <span class="badge badge-neutral" id="badgeStatusInhire">
+                            <i class="fa-regular fa-circle"></i> Não sincronizado
+                        </span>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="tituloPublicacao" class="label-obrigatorio">Título de publicação</label>
+                                <input type="text" id="tituloPublicacao" name="tituloPublicacao" class="form-control"
+                                    placeholder="Título exibido na vaga pública">
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="visibilidade">Visibilidade</label>
+                                <select id="visibilidade" name="visibilidade" class="form-control">
+                                    <option value="PUBLICA">Pública</option>
+                                    <option value="INTERNA">Interna</option>
+                                    <option value="CONFIDENCIAL">Confidencial</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricaoPublica">Descrição pública da vaga</label>
+                            <textarea id="descricaoPublica" name="descricaoPublica" class="form-control" rows="4"
+                                placeholder="Texto que será exibido para os candidatos."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Canais de divulgação</label>
+                            <div class="check-list">
+                                <label class="check-item">
+                                    <input type="checkbox" name="canaisDivulgacao" value="SITE_CARREIRAS" checked>
+                                    <span class="check-item-text">
+                                        <strong>Site de carreiras</strong>
+                                        <span>Página pública de vagas da empresa.</span>
+                                    </span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="canaisDivulgacao" value="LINKEDIN" checked>
+                                    <span class="check-item-text">
+                                        <strong>LinkedIn</strong>
+                                        <span>Publicação automática via integração.</span>
+                                    </span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="canaisDivulgacao" value="INDEED">
+                                    <span class="check-item-text">
+                                        <strong>Indeed</strong>
+                                    </span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" name="canaisDivulgacao" value="INDICACAO_INTERNA">
+                                    <span class="check-item-text">
+                                        <strong>Indicação interna</strong>
+                                        <span>Visível apenas para colaboradores.</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="idInhire">ID da vaga no Inhire</label>
+                                <input type="text" id="idInhire" name="idInhire" class="form-control" readonly
+                                    placeholder="Gerado ao sincronizar">
+                            </div>
+
+                            <div class="col-6 form-group is-last">
+                                <label for="linkVaga">Link da vaga publicada</label>
+                                <input type="text" id="linkVaga" name="linkVaga" class="form-control" readonly
+                                    placeholder="Gerado ao sincronizar">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="btnSincronizar">
+                            <i class="fa-solid fa-rotate"></i> Sincronizar com Inhire
+                        </button>
+
+                        <div id="mensagemInhire" class="vg-feedback" role="status"></div>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     ETAPAS DO PROCESSO SELETIVO
+                ========================================== -->
+                <section class="vg-panel" id="painelFunil">
+                    <div class="vg-panel-heading">
+                        <div>
+                            <h2 class="vg-panel-title"><i class="fa-solid fa-filter"></i> Etapas do processo seletivo
+                            </h2>
+                            <p class="vg-panel-subtitle">Selecione as etapas que farão parte do funil desta vaga.</p>
+                        </div>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="check-list">
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="TRIAGEM" checked disabled>
+                                <span class="check-item-text">
+                                    <strong>1. Triagem curricular</strong>
+                                    <span>Etapa obrigatória em todas as vagas.</span>
+                                </span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="ENTREVISTA_RH" checked>
+                                <span class="check-item-text">
+                                    <strong>2. Entrevista com RH</strong>
+                                </span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="TESTE_TECNICO">
+                                <span class="check-item-text">
+                                    <strong>3. Teste técnico</strong>
+                                </span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="ENTREVISTA_GESTOR" checked>
+                                <span class="check-item-text">
+                                    <strong>4. Entrevista com gestor</strong>
+                                </span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="PROPOSTA" checked disabled>
+                                <span class="check-item-text">
+                                    <strong>5. Proposta</strong>
+                                    <span>Etapa obrigatória em todas as vagas.</span>
+                                </span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="etapasFunil" value="ADMISSAO" checked disabled>
+                                <span class="check-item-text">
+                                    <strong>6. Admissão</strong>
+                                    <span>Etapa obrigatória em todas as vagas.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =========================================
+                     EQUIPE RESPONSÁVEL
+                ========================================== -->
+                <section class="vg-panel" id="painelEquipe">
+                    <div class="vg-panel-heading">
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-people-group"></i> Equipe responsável</h2>
+                    </div>
+
+                    <div class="vg-panel-body">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="recrutadorResponsavel" class="label-obrigatorio">Recrutador
+                                    responsável</label>
+                                <input type="text" id="recrutadorResponsavel" name="recrutadorResponsavel"
+                                    class="form-control" placeholder="Nome do recrutador">
+                            </div>
+
+                            <div class="col-6 form-group is-last">
+                                <label for="emailNotificacoes">E-mail para notificações</label>
+                                <input type="email" id="emailNotificacoes" name="emailNotificacoes"
+                                    class="form-control" placeholder="nome@irho.com.br">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="vg-form-footer">
+                    <a href="01-cadastro-vaga.html" class="btn btn-default">
+                        <i class="fa-solid fa-arrow-left"></i> Voltar
+                    </a>
+
+                    <button type="button" class="btn btn-primary" id="btnConcluir">
+                        Concluir cadastro e iniciar divulgação
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/prototipo.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            var form = document.getElementById("formCadastroInhire");
+
+            var ROTULOS = {
+                departamento: {
+                    GENTE: "Gente & Cultura (RH)", COMERCIAL: "Comercial", TI: "TI", FINANCEIRO: "Financeiro",
+                    MARKETING: "Marketing", OPERACIONAL: "Operacional", JURIDICO: "Jurídico", ADMINISTRATIVO: "Administrativo"
+                },
+                tipoContratacao: { CLT: "CLT", PJ: "PJ", ESTAGIO: "Estágio", APRENDIZ: "Aprendiz", TEMPORARIO: "Temporário" },
+                modeloTrabalho: { PRESENCIAL: "Presencial", HIBRIDO: "Híbrido", REMOTO: "Remoto" }
+            };
+
+            function formatarMoeda(valor) {
+                if (!valor) return "";
+                return "R$ " + valor;
+            }
+
+            function preencherResumo() {
+                var dados = window.VagaPrototipo.lerDados();
+
+                document.querySelectorAll("[data-resumo]").forEach(function (elemento) {
+                    var campo = elemento.getAttribute("data-resumo");
+                    var valor = "—";
+
+                    if (campo === "faixaSalarial") {
+                        var min = formatarMoeda(dados.salarioMin);
+                        var max = formatarMoeda(dados.salarioMax);
+                        if (min || max) valor = (min || "—") + " até " + (max || "—");
+                    } else {
+                        var bruto = dados[campo];
+                        if (bruto) {
+                            var mapa = ROTULOS[campo];
+                            valor = mapa && mapa[bruto] ? mapa[bruto] : bruto;
+                        }
+                    }
+
+                    elemento.textContent = valor;
+                });
+
+                if (dados.tituloVaga && !document.getElementById("tituloPublicacao").value) {
+                    document.getElementById("tituloPublicacao").value = dados.tituloVaga;
+                }
+                if (dados.descricaoVaga && !document.getElementById("descricaoPublica").value) {
+                    document.getElementById("descricaoPublica").value = dados.descricaoVaga;
+                }
+                if (dados.gestorSolicitante && !document.getElementById("recrutadorResponsavel").value) {
+                    document.getElementById("recrutadorResponsavel").value = "";
+                }
+            }
+
+            function coletarDados() {
+                var dados = {};
+                new FormData(form).forEach(function (valor, chave) {
+                    if (dados[chave] === undefined) {
+                        dados[chave] = valor;
+                    } else if (Array.isArray(dados[chave])) {
+                        dados[chave].push(valor);
+                    } else {
+                        dados[chave] = [dados[chave], valor];
+                    }
+                });
+                return dados;
+            }
+
+            document.getElementById("btnSincronizar").addEventListener("click", function () {
+                var salvos = window.VagaPrototipo.lerDados();
+                var idGerado = "INH-" + Math.floor(100000 + Math.random() * 900000);
+                var linkGerado = "https://carreiras.irho.com.br/vagas/" + idGerado.toLowerCase();
+
+                document.getElementById("idInhire").value = idGerado;
+                document.getElementById("linkVaga").value = linkGerado;
+
+                var badge = document.getElementById("badgeStatusInhire");
+                badge.className = "badge badge-green";
+                badge.innerHTML = "<i class=\"fa-solid fa-check\"></i> Sincronizado";
+
+                window.VagaPrototipo.atualizarDados({
+                    idInhire: idGerado,
+                    linkVaga: linkGerado,
+                    statusVaga: "PUBLICADA"
+                });
+
+                var msg = document.getElementById("mensagemInhire");
+                msg.textContent = "Vaga sincronizada com sucesso. ID e link gerados (simulação).";
+                msg.className = "vg-feedback is-visible is-success";
+            });
+
+            document.getElementById("btnConcluir").addEventListener("click", function () {
+                var dados = coletarDados();
+                dados.statusVaga = "EM_DIVULGACAO";
+                window.VagaPrototipo.atualizarDados(dados);
+                window.location.href = "03-progresso-vaga.html";
+            });
+
+            preencherResumo();
+        })();
+    </script>
+</body>
+
+</html>

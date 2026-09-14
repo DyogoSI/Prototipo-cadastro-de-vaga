@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Progresso da Vaga - Protótipo IRHO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/prototipo.css">
+</head>
+
+<body>
+    <div class="vg-layout">
+
+        <aside class="vg-sidebar">
+            <div class="vg-sidebar-brand">
+                <img src="assets/IRHO-BRANCO.png" class="vg-sidebar-logo" alt="IRHO">
+                <span class="vg-sidebar-title">Abertura de Vaga</span>
+            </div>
+
+            <nav class="vg-stepper" aria-label="Etapas do processo">
+                <a href="01-cadastro-vaga.html" class="vg-step is-done">
+                    <span class="vg-step-number"></span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro da vaga</strong>
+                        <span>Dados, requisitos e aprovações</span>
+                    </span>
+                </a>
+                <a href="02-cadastro-inhire.html" class="vg-step is-done">
+                    <span class="vg-step-number"></span>
+                    <span class="vg-step-label">
+                        <strong>Cadastro no Inhire</strong>
+                        <span>Publicação e funil seletivo</span>
+                    </span>
+                </a>
+                <a href="03-progresso-vaga.html" class="vg-step is-active">
+                    <span class="vg-step-number">3</span>
+                    <span class="vg-step-label">
+                        <strong>Progresso da vaga</strong>
+                        <span>Acompanhamento dos candidatos</span>
+                    </span>
+                </a>
+            </nav>
+
+            <nav class="vg-sidebar-menu" aria-label="Seções da tela">
+                <div class="vg-sidebar-menu-title">Nesta tela</div>
+                <a href="#painelIndicadores" class="active">Indicadores</a>
+                <a href="#painelKanban">Funil de candidatos</a>
+                <a href="#painelHistorico">Histórico</a>
+            </nav>
+
+            <div class="vg-sidebar-footer">
+                <div class="vg-footer-credits">
+                    <span class="vg-credits-text">Desenvolvido por</span>
+                    <img src="assets/LOGO-OPERACIONAL-BRANCA.png" alt="Interhativa Operacional" class="vg-credits-img">
+                </div>
+            </div>
+        </aside>
+
+        <main class="vg-main">
+
+            <!-- =========================================
+                 CABEÇALHO DA VAGA
+            ========================================== -->
+            <section class="vaga-hero">
+                <div class="vaga-hero-title">
+                    <span class="badge" id="heroBadgeStatus"><i class="fa-solid fa-circle-play"></i> Em divulgação</span>
+                    <h1 id="heroTitulo">Analista de Recrutamento e Seleção</h1>
+                    <span id="heroSubtitulo">Gente &amp; Cultura (RH) · Publicada no Inhire</span>
+                </div>
+
+                <div class="vaga-hero-meta">
+                    <div>
+                        <strong id="heroDiasAberta">—</strong>
+                        <span>Dias em aberto</span>
+                    </div>
+                    <div>
+                        <strong id="heroVagas">—</strong>
+                        <span>Vagas</span>
+                    </div>
+                    <div>
+                        <strong id="heroCandidatos">18</strong>
+                        <span>Candidatos</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================
+                 INDICADORES
+            ========================================== -->
+            <section id="painelIndicadores">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <strong>18</strong>
+                        <span>Total de candidatos</span>
+                    </div>
+                    <div class="kpi-card">
+                        <strong>11</strong>
+                        <span>Em processo</span>
+                    </div>
+                    <div class="kpi-card">
+                        <strong>2</strong>
+                        <span>Aprovados</span>
+                    </div>
+                    <div class="kpi-card">
+                        <strong>5</strong>
+                        <span>Reprovados</span>
+                    </div>
+                    <div class="kpi-card">
+                        <strong>4 dias</strong>
+                        <span>Tempo médio por etapa</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================
+                 FUNIL DE CANDIDATOS (KANBAN)
+            ========================================== -->
+            <section class="vg-panel" id="painelKanban">
+                <div class="vg-panel-heading">
+                    <div>
+                        <h2 class="vg-panel-title"><i class="fa-solid fa-table-columns"></i> Funil de candidatos</h2>
+                        <p class="vg-panel-subtitle">Visão geral dos candidatos em cada etapa do processo seletivo.
+                        </p>
+                    </div>
+                    <span class="badge badge-blue"><i class="fa-solid fa-link"></i> Sincronizado com Inhire</span>
+                </div>
+
+                <div class="vg-panel-body">
+                    <div class="kanban-scroll">
+                        <div class="kanban-board">
+
+                            <div class="kanban-column" style="--kanban-accent:#788790">
+                                <div class="kanban-column-header">
+                                    <strong>Inscritos</strong>
+                                    <span class="kanban-count">6</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Beatriz Nogueira</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">BN</span>
+                                            <span>há 1 dia</span>
+                                        </div>
+                                    </article>
+                                    <article class="candidate-card">
+                                        <strong>Rafael Tavares</strong>
+                                        <span class="candidate-role">Analista Júnior</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">RT</span>
+                                            <span>há 1 dia</span>
+                                        </div>
+                                    </article>
+                                    <article class="candidate-card">
+                                        <strong>Camila Duarte</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">CD</span>
+                                            <span>há 2 dias</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#24aee4">
+                                <div class="kanban-column-header">
+                                    <strong>Triagem</strong>
+                                    <span class="kanban-count">4</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Lucas Meireles</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">LM</span>
+                                            <span>há 3 dias</span>
+                                        </div>
+                                    </article>
+                                    <article class="candidate-card">
+                                        <strong>Fernanda Alcântara</strong>
+                                        <span class="candidate-role">Analista Sênior</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">FA</span>
+                                            <span>há 3 dias</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#fa5c05">
+                                <div class="kanban-column-header">
+                                    <strong>Entrevista RH</strong>
+                                    <span class="kanban-count">3</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Diego Amaral</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">DA</span>
+                                            <span>Entrevista dia 05/09</span>
+                                        </div>
+                                    </article>
+                                    <article class="candidate-card">
+                                        <strong>Juliana Prado</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">JP</span>
+                                            <span>Entrevista dia 04/09</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#7b3fa1">
+                                <div class="kanban-column-header">
+                                    <strong>Entrevista Gestor</strong>
+                                    <span class="kanban-count">2</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Marcos Vinícius</strong>
+                                        <span class="candidate-role">Analista Sênior</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">MV</span>
+                                            <span>Entrevista dia 08/09</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#b98a00">
+                                <div class="kanban-column-header">
+                                    <strong>Proposta</strong>
+                                    <span class="kanban-count">1</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Priscila Gomes</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">PG</span>
+                                            <span>Proposta enviada</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#138a43">
+                                <div class="kanban-column-header">
+                                    <strong>Contratado</strong>
+                                    <span class="kanban-count">1</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>André Salgado</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">AS</span>
+                                            <span>Admissão 15/09</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="kanban-column" style="--kanban-accent:#d93025">
+                                <div class="kanban-column-header">
+                                    <strong>Reprovados</strong>
+                                    <span class="kanban-count">5</span>
+                                </div>
+                                <div class="kanban-cards">
+                                    <article class="candidate-card">
+                                        <strong>Otávio Ramos</strong>
+                                        <span class="candidate-role">Analista Júnior</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">OR</span>
+                                            <span>Perfil técnico</span>
+                                        </div>
+                                    </article>
+                                    <article class="candidate-card">
+                                        <strong>Sofia Bezerra</strong>
+                                        <span class="candidate-role">Analista Pleno</span>
+                                        <div class="candidate-meta">
+                                            <span class="candidate-avatar">SB</span>
+                                            <span>Pretensão salarial</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================================
+                 HISTÓRICO DA VAGA
+            ========================================== -->
+            <section class="vg-panel" id="painelHistorico">
+                <div class="vg-panel-heading">
+                    <h2 class="vg-panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Histórico da vaga</h2>
+                </div>
+
+                <div class="vg-panel-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-marker"><i class="fa-solid fa-user-plus"></i></span>
+                            <div class="timeline-content">
+                                <strong>Vaga cadastrada</strong>
+                                <p>Solicitação criada por Gestor solicitante para o departamento Gente &amp;
+                                    Cultura.</p>
+                                <time>28/08/2026 · 09:12</time>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-marker" style="background:#138a43"><i class="fa-solid fa-check"></i></span>
+                            <div class="timeline-content">
+                                <strong>Aprovações concluídas</strong>
+                                <p>Compliance, Jurídico e Administrativo aprovaram a abertura da vaga.</p>
+                                <time>29/08/2026 · 16:40</time>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-marker" style="background:#24aee4"><i class="fa-solid fa-plug-circle-bolt"></i></span>
+                            <div class="timeline-content">
+                                <strong>Vaga sincronizada com o Inhire</strong>
+                                <p>Publicada no site de carreiras e no LinkedIn.</p>
+                                <time>01/09/2026 · 10:05</time>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-marker" style="background:#7b3fa1"><i class="fa-solid fa-people-arrows"></i></span>
+                            <div class="timeline-content">
+                                <strong>Primeiras candidaturas recebidas</strong>
+                                <p>18 candidatos inscritos até o momento.</p>
+                                <time>02/09/2026 · 14:22</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/prototipo.js"></script>
+    <script>
+        (function () {
+            "use strict";
+
+            var ROTULOS_DEPARTAMENTO = {
+                GENTE: "Gente & Cultura (RH)", COMERCIAL: "Comercial", TI: "TI", FINANCEIRO: "Financeiro",
+                MARKETING: "Marketing", OPERACIONAL: "Operacional", JURIDICO: "Jurídico", ADMINISTRATIVO: "Administrativo"
+            };
+
+            var dados = window.VagaPrototipo.lerDados();
+
+            if (dados.tituloVaga) {
+                document.getElementById("heroTitulo").textContent = dados.tituloVaga;
+            }
+
+            if (dados.departamento) {
+                var nomeDepartamento = ROTULOS_DEPARTAMENTO[dados.departamento] || dados.departamento;
+                document.getElementById("heroSubtitulo").textContent = nomeDepartamento + " · Publicada no Inhire";
+            }
+
+            document.getElementById("heroVagas").textContent = dados.quantidadeVagas || "1";
+            document.getElementById("heroDiasAberta").textContent = "5";
+        })();
+    </script>
+</body>
+
+</html>
